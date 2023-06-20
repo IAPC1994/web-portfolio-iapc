@@ -1,7 +1,7 @@
-import profile from '../assets/profile.png';
-import cv from '../assets/CV_Ivan_Panussis.pdf';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import profile from '../assets/profile.png';
+import cv from '../assets/CV_Ivan_Panussis.pdf';
 
 export const Home = () => {
 
