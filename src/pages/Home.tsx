@@ -4,13 +4,15 @@ import profile from '../assets/profile.png';
 import bgProfileLight from '../assets/bg_profile_light.png';
 import bgProfileDark from '../assets/bg_profile_dark.png';
 import cv from '../assets/CV_Ivan_Panussis.pdf';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UIContext } from '../context/ui';
 
 export const Home = () => {
 
     const { isDarkMode } = useContext(UIContext);
 
+    useEffect(() => {}, [isDarkMode]);
+    
     return(
         <div 
             id="home"
@@ -28,9 +30,9 @@ export const Home = () => {
                     className="h-60 w-60 flex justify-center items-center" 
                 >
                     {
-                        (isDarkMode)
-                            ? (<img src={ bgProfileLight } alt="Background Profile Light for profile picture" className='absolute w-80'/>)
-                            : (<img src={ bgProfileDark } alt="Background Profile Dark for profile picture" className='absolute w-80'/>)
+                        (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))
+                            ? (<img src={ bgProfileDark } alt="Background Profile Light for profile picture" className='absolute w-80'/>)
+                            : (<img src={ bgProfileLight } alt="Background Profile Dark for profile picture" className='absolute w-80'/>)
                     }
                     <img src={ profile } alt="Profile picture of Ivan Panussis" width={127} className='mb-8 mr-2 rounded-full z-10'/>
                 </div>

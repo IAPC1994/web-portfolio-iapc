@@ -29,14 +29,13 @@ export const DarkMode = () => {
         <div className="fixed right-0 mt-1 mr-2 z-30">
             <button
                 onClick={ onClickToggleTheme }
-                className='h-9 w-9 border-2 border-white shadow-lg rounded-full bg-gradient-to-t from-black to-blue-600 dark:bg-gradient-to-t dark:from-green-700 dark:to-green-400 text-white'
+                className='h-9 w-9 border-2 border-white shadow-lg rounded-full dark:bg-gradient-to-t dark:from-black dark:to-blue-600 bg-gradient-to-t from-green-700 to-green-400 text-white'
             >
                 {
-                    isDarkMode
+                    (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))
                         ? <FontAwesomeIcon icon={ faMoon } size="lg"/>
                         : <FontAwesomeIcon icon={ faSun } size="lg"/>
                 }
-                
             </button>
         </div>
     );

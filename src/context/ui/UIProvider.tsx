@@ -9,7 +9,7 @@ export interface UIState {
 
 const UI_INITIAL_STATE:UIState = {
     isNavbarOpen: false,
-    isDarkMode: false,
+    isDarkMode: true,
 }
 
 export const UIProvider:FC<PropsWithChildren> = ({ children }) => {
