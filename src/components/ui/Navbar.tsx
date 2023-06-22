@@ -12,7 +12,7 @@ export const Navbar = () => {
 
     return(
         <nav
-            className={`fixed h-48 w-full bg-green-800 dark:bg-sky-700 text-white pt-4 ${ !isNavbarOpen ? '-top-36' : 'top-0' } duration-300`}
+            className={`fixed h-48 w-full bg-green-800 dark:bg-sky-700 text-white pt-4 ${ !isNavbarOpen ? '-top-36' : 'top-0' } duration-300 z-20`}
         >
             <div
                 className="flex flex-col gap-5"

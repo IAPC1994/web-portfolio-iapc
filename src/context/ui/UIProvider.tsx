@@ -4,10 +4,12 @@ import { UIContext, uiReducer } from './';
 
 export interface UIState {
     isNavbarOpen: boolean;
+    isDarkMode: boolean;
 }
 
 const UI_INITIAL_STATE:UIState = {
     isNavbarOpen: false,
+    isDarkMode: false,
 }
 
 export const UIProvider:FC<PropsWithChildren> = ({ children }) => {
@@ -18,12 +20,17 @@ export const UIProvider:FC<PropsWithChildren> = ({ children }) => {
         dispatch({type:'[UI] - Navbar Toggle'});
     }
 
+    const toggleTheme = () => {
+        dispatch({type:'[UI] - Theme Toggle'});
+    }
+
     return(
        <UIContext.Provider value={{
             ...state,
 
             //Methods
-            toggleNavbar
+            toggleNavbar,
+            toggleTheme
        }}>
             { children }
        </UIContext.Provider>

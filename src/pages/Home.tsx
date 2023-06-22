@@ -1,9 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import profile from '../assets/profile.png';
+import bgProfileLight from '../assets/bg_profile_light.png';
+import bgProfileDark from '../assets/bg_profile_dark.png';
 import cv from '../assets/CV_Ivan_Panussis.pdf';
+import { useContext } from 'react';
+import { UIContext } from '../context/ui';
 
 export const Home = () => {
+
+    const { isDarkMode } = useContext(UIContext);
 
     return(
         <div 
@@ -19,9 +25,14 @@ export const Home = () => {
                     <p className="text-sm">To your &#60;bussiness &#47;&#62;</p>
                 </div>
                 <div
-                    className="h-60 w-60 flex justify-center items-center bg-[url('src/assets/bg_profile_light.svg')] dark:bg-[url('src/assets/bg_profile_dark.svg')] bg-cover bg-center" 
+                    className="h-60 w-60 flex justify-center items-center" 
                 >
-                    <img src={ profile } alt="Profile picture of Ivan Panussis" width={127} className='mb-4 mr-2 rounded-full'/>
+                    {
+                        (isDarkMode)
+                            ? (<img src={ bgProfileLight } alt="Background Profile Light for profile picture" className='absolute w-80'/>)
+                            : (<img src={ bgProfileDark } alt="Background Profile Dark for profile picture" className='absolute w-80'/>)
+                    }
+                    <img src={ profile } alt="Profile picture of Ivan Panussis" width={127} className='mb-8 mr-2 rounded-full z-10'/>
                 </div>
                 <div>
                     <h1 className="text-3xl text-green-500 dark:text-sky-500 font-semibold">Ivan Panussis</h1>
